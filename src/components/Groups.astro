@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import { groups } from "../assets/constants/groups";
+---
+
+<section class="w-dvw">
+  <h2
+    class="flex w-full h-20 items-center justify-center text-white bg-linear-to-b from-amber-950 to-amber-900 text-2xl lg:text-4xl"
+  >
+    Conocé los grupos del mundial
+  </h2>
+  <div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+    {
+      groups.map((group) => (
+        <div>
+          <h3>{group.id}</h3>
+          <div class="flex flex-col justify-center border border-stone-500 rounded-sm shadow-md shadow-stone-600">
+            {group.teams.map((team) => (
+              <div>
+                <div
+                  class="cursor-pointer h-12 flex px-2 items-center"
+                  data-team={team.name}
+                >
+                  <Image class="h-10" src={team.flag} alt={team.name} />
+                  <p>{team.name}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

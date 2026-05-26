@@ -1,0 +1,16 @@
+---
+import { links } from "../assets/constants";
+const { className = "", linkClass = "" } = Astro.props;
+---
+
+<ul class={className}>
+  {
+    links.map((link) => (
+      <li>
+        <a href={link.href} class:list={["flex items-center gap-4", linkClass]}>
+          {link.name}
+        </a>
+      </li>
+    ))
+  }
+</ul>

@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import { sponsors } from "../assets/constants";
+---
+
+<section class="h-50 overflow-hidden py-2">
+  <!-- track -->
+  <div class="flex items-center w-max gap-12 animate-scroll">
+    {
+      sponsors.map((sponsor) => (
+        <div class="shrink-0">
+          <Image src={sponsor.image} alt={sponsor.name} class="h-30 w-auto" />
+        </div>
+      ))
+    }
+    {
+      sponsors.map((sponsor) => (
+        <div class="shrink-0">
+          <Image src={sponsor.image} alt={sponsor.name} class="h-30 w-auto" />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 60s linear infinite;
+  }
+</style>

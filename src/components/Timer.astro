@@ -1,0 +1,53 @@
+<section class="flex flex-col items-center h-60 bg-bg-variant gap-10 py-4">
+  <h2 class="text-title text-2xl">Faltan</h2>
+  <!-- Clock -->
+  <div class="text-subtitle flex flex-row justify-center gap-12">
+    <!-- Days -->
+    <div class="flex flex-col items-center">
+      <p class="text-2xl" id="days">00</p>
+      <p class="text-base">Días</p>
+    </div>
+    <!-- Hours -->
+    <div class="flex flex-col items-center">
+      <p class="text-2xl" id="hours">00</p>
+      <p class="text-base">Horas</p>
+    </div>
+    <!-- Minutes -->
+    <div class="flex flex-col items-center">
+      <p class="text-2xl" id="minutes">00</p>
+      <p class="text-base">Minutos</p>
+    </div>
+    <!-- Seconds -->
+    <div class="flex flex-col items-center">
+      <p class="text-2xl" id="seconds">00</p>
+      <p class="text-base">Segundos</p>
+    </div>
+  </div>
+  <p class="text-2xl">Para el mundial!</p>
+</section>
+
+<script>
+  const targetDate = new Date("2026-06-11T16:00:00");
+
+  const days = document.getElementById("days");
+  const hours = document.getElementById("hours");
+  const minutes = document.getElementById("minutes");
+  const seconds = document.getElementById("seconds");
+
+  const interval = setInterval(calculateTimer, 1000);
+
+  function calculateTimer() {
+    const difference = targetDate.getTime() - Date.now();
+    const daysLeft = Math.floor(difference / 86400000);
+    const hoursLeft = Math.floor((difference % 86400000) / 3600000);
+    const minutesLeft = Math.floor((difference % 3600000) / 60000);
+    const secondsLeft = Math.floor((difference % 60000) / 1000);
+
+    if (days && hours && minutes && seconds) {
+      days.textContent = String(daysLeft).padStart(2, "0");
+      hours.textContent = String(hoursLeft).padStart(2, "0");
+      minutes.textContent = String(minutesLeft).padStart(2, "0");
+      seconds.textContent = String(secondsLeft).padStart(2, "0");
+    }
+  }
+</script>

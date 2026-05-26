@@ -1,0 +1,20 @@
+Y te explico rápidamente la lógica de cada una:
+
+primary
+→ azul principal del branding
+bg-light
+→ fondo general claro
+bg-variant
+→ una variante apenas más azulada para secciones/cards
+cta
+→ rojo de botones principales
+cta-hover
+→ versión más oscura del rojo para hover
+title
+→ color principal de texto/títulos
+subtitle
+→ gris para texto secundario
+secondary
+→ verde de acento
+gold
+→ color premium para figuritas especiales/raras

@@ -1,0 +1,36 @@
+---
+import { categories } from "../assets/constants/products";
+import ProductCard from "./ProductCard.astro";
+---
+
+<section
+  id="products"
+  class="min-w-dvw my-4 flex flex-col items-center lg:items-start"
+>
+  <h2
+    class="flex w-full h-20 items-center justify-center text-white bg-linear-to-b from-amber-950 to-amber-900 text-2xl lg:text-4xl"
+  >
+    Las más buscadas
+  </h2>
+  <div class="mx-auto flex max-w-screen flex-wrap justify-center">
+    {
+      categories.map((category) => (
+        <section class="flex flex-col min-w-dvw">
+          <h3 class=" text-center py-2 text-white bg-linear-to-b from-blue-900 to-blue-800 ">
+            {category.title}
+          </h3>
+          <div class="w-full flex flex-wrap justify-center">
+            {category.products.map((product, index) => (
+              <div
+                class="reveal lg:mx-4"
+                style={`transition-delay: ${index * 150}ms`}
+              >
+                <ProductCard {...product} />
+              </div>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</section>

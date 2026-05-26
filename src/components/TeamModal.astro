@@ -1,0 +1,43 @@
+---
+import Icon from "../components/Icon.astro";
+---
+
+<div
+  id="modal"
+  class="hidden z-50 inset-0 fixed backdrop-blur-sm bg-black/50 h-dvh w-dvw items-center justify-center"
+>
+  <div class="gap-4 p-4 bg-white w-100 h-fit rounded-sm">
+    <div class="flex items-center w-full justify-between pb-4">
+      <img id="modal-flag" />
+      <h3 class="text-2xl" id="modal-name"></h3>
+      <Icon id="close-modal" name="close" class="w-3 h-3 mx-4 cursor-pointer" />
+    </div>
+    <div class="flex flex-col gap-4">
+      <p class="font-bold">
+        Participaciones en copas del mundo:
+        <span class="font-normal" id="modal-world-cups"></span>
+      </p>
+      <p class="font-bold">
+        Mejor resultado obtenido:{" "}
+        <span class="font-normal" id="modal-best-results"></span>
+      </p>
+      <p id="modal-memo"></p>
+      <p class="font-bold">
+        Jugadores históricos de <span id="modal-name-country"></span>:
+        <span class="font-normal" id="modal-legends"></span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const closeModal = document.getElementById("close-modal");
+  const modal = document.getElementById("modal");
+
+  closeModal?.addEventListener("click", () => {
+    modal?.classList.add("hidden");
+    modal?.classList.remove("flex");
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  });
+</script>

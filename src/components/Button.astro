@@ -1,0 +1,39 @@
+---
+const {
+  variant = "primary",
+  href,
+  class: className = "",
+  target,
+  id,
+} = Astro.props as {
+  variant?: "primary" | "whatsapp" | "hero";
+  text: string;
+  href?: string;
+  class?: string;
+  target?: string;
+  id: string;
+};
+---
+
+<a
+  id={id}
+  href={href}
+  target={target}
+  rel={target === "_blank" ? "noopener noreferrer" : undefined}
+  class:list={[
+    "transition-all duration-300 hover:cursor-pointer",
+
+    className,
+
+    variant === "primary" &&
+      "bg-cta hover:bg-cta-hover shadow-secondary rounded-full px-6 py-2 font-semibold text-white shadow-lg hover:scale-105",
+
+    variant === "whatsapp" &&
+      "shadow-secondary w-fit rounded-full bg-green-500 px-6 py-2 text-center text-2xl font-semibold text-white shadow-lg hover:scale-105 hover:bg-green-700 lg:mx-0",
+
+    variant === "hero" &&
+      "mx-2 rounded-4xl border border-white px-4 py-1 text-center text-2xl font-semibold shadow-white hover:scale-105 hover:shadow-lg md:w-fit lg:px-20 lg:py-4 lg:text-3xl",
+  ]}
+>
+  <slot />
+</a>

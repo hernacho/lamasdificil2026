@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+import { groups } from "../assets/constants/groups";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import Sponsors from "../components/Sponsors.astro";
+import Timer from "../components/Timer.astro";
+import Products from "../components/Products.astro";
+import Groups from "../components/Groups.astro";
+import TeamModal from "../components/TeamModal.astro";
+---
+
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body class="min-w-dvw">
+    <Navbar />
+    <Hero />
+    <Sponsors />
+    <Timer />
+    <Products />
+    <Groups />
+    <TeamModal />
+    <script define:vars={{ groups }}>
+      window.groups = groups;
+    </script>
+    <script>
+      import "../scripts/modal.js";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --background-image-hero: url("/hero.png");
+  --color-primary: #123c73;
+  --color-bg-light: #f8fafc;
+  --color-bg-variant: #e8eef5;
+  --color-cta: #e63946;
+  --color-cta-hover: #c92f3b;
+  --color-title: #111827;
+  --color-subtitle: #374151;
+  --color-secondary: #2a9d8f;
+  --color-gold: #d4af37;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Bebas Neue", sans-serif;
+}
