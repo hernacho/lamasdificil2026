@@ -10,9 +10,13 @@ import logo from "../assets/images/logo.png";
   <div
     class="px-12 p-6 flex justify-between h-20 inset-0 bg-primary text-white lg:flex-row lg:items-center lg:justify-between"
   >
-    <Image src={logo} alt="" class="h-10 w-auto" />
+    <a href="#home">
+      <Image src={logo} alt="" class="h-10 w-auto" />
+    </a>
     <NavLinks className="hidden lg:gap-6 lg:flex" linkClass="" />
-    <Icon name="shoppingCart" class="w-6 h-6" />
+    <button id="cart-panel-open">
+      <Icon name="shoppingCart" class="w-6 h-6" />
+    </button>
     <Icon
       id="open-btn"
       name="hamburger"

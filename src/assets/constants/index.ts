@@ -99,10 +99,10 @@ export const sponsors = [
 ];
 
 export const links = [
-  { name: "Home", href: "#" },
+  { name: "Home", href: "/" },
   { name: "Más buscadas", href: "#" },
-  { name: "Grupos", href: "#" },
-  { name: "Productos", href: "#" },
+  { name: "Grupos", href: "/#grupos" },
+  { name: "Productos", href: "/#productos" },
   { name: "Sobre nosotros", href: "#" },
   { name: "Contactanos", href: "#" },
 ];

@@ -1,0 +1,14 @@
+---
+import Icon from "../components/Icon.astro";
+const { id, name, price, image } = Astro.props;
+---
+
+<button
+  data-id={id}
+  data-name={name}
+  data-price={price}
+  data-image={image.src}
+  class="bg-cta hover:bg-cta-hover shadow-stone-400 rounded-full px-6 py-2 font-bold text-white shadow-lg hover:scale-105 transition-all duration-300 text-sm h-6 flex items-center"
+>
+  <Icon name="shoppingCart" class="w-4 h-4 mr-2" />
+</button>

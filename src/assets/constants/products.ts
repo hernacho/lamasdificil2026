@@ -27,6 +27,7 @@ import goldVandijk from "../images/figuritas/gold-vandijk.png";
 import goldYamal from "../images/figuritas/gold-yamal.png";
 import goldKubo from "../images/figuritas/gold-kubo.png";
 import playerCristianRomero from "../images/figuritas/player-cristian-romero.png";
+import playerTimPayne from "../images/figuritas/player-tim-payne.png";
 import playerDembele from "../images/figuritas/player-dembele.png";
 import playerEmilianoMartinez from "../images/figuritas/player-emiliano-martinez.png";
 import playerEnzoFernandez from "../images/figuritas/player-enzo-fernandez.png";
@@ -35,7 +36,7 @@ import playerJulianAlvarez from "../images/figuritas/player-julian-alvarez.png";
 import playerLionelMessi from "../images/figuritas/player-lionel-messi.png";
 import playerNicoPaz from "../images/figuritas/player-nico-paz.png";
 import playerRodri from "../images/figuritas/player-rodri.png";
-import playerRodrigoDepual from "../images/figuritas/player-rodrigo-de-paul.png";
+import playerRodrigoDepaul from "../images/figuritas/player-rodrigo-de-paul.png";
 import playerVinicius from "../images/figuritas/player-vinicius.png";
 import playerYerryMina from "../images/figuritas/player-yerry-mina.png";
 import playerKevinDeBruyne from "../images/figuritas/player-kevin-de-bruyne.png";
@@ -111,9 +112,9 @@ export const crestProducts = [
 export const goldProducts = [
   {
     id: 9,
-    name: "Moisés Caicedo",
-    price: 5000.0,
-    image: goldCaicedo,
+    name: "Lionel Messi",
+    price: 15000.0,
+    image: goldMessi,
   },
   {
     id: 10,
@@ -165,9 +166,9 @@ export const goldProducts = [
   },
   {
     id: 18,
-    name: "Lionel Messi",
-    price: 15000.0,
-    image: goldMessi,
+    name: "Moisés Caicedo",
+    price: 5000.0,
+    image: goldCaicedo,
   },
   {
     id: 19,
@@ -240,9 +241,9 @@ export const playerProducts = [
   },
   {
     id: 30,
-    name: "Ousmane Dembélé",
-    price: 450.0,
-    image: playerDembele,
+    name: "Tim Payne",
+    price: 2000,
+    image: playerTimPayne,
   },
   {
     id: 31,
@@ -290,7 +291,7 @@ export const playerProducts = [
     id: 38,
     name: "Rodrigo De Paul",
     price: 450.0,
-    image: playerRodrigoDepual,
+    image: playerRodrigoDepaul,
   },
   {
     id: 39,
@@ -316,29 +317,35 @@ export const playerProducts = [
     price: 450.0,
     image: playerRaphinha,
   },
+  {
+    id: 43,
+    name: "Ousmane Dembélé",
+    price: 450.0,
+    image: playerDembele,
+  },
 ];
 
 export const teamProducts = [
   {
-    id: 43,
+    id: 44,
     name: "Selección de Argentina",
     price: 1800.0,
     image: teamArgentina,
   },
   {
-    id: 44,
+    id: 45,
     name: "Selección de Brasil",
     price: 1800.0,
     image: teamBrazil,
   },
   {
-    id: 45,
+    id: 46,
     name: "Selección de Francia",
     price: 1800.0,
     image: teamFrance,
   },
   {
-    id: 46,
+    id: 47,
     name: "Selección de España",
     price: 1800.0,
     image: teamSpain,

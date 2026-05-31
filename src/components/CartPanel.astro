@@ -1,0 +1,24 @@
+<div
+  id="cart-panel"
+  class="transition-transform duration-300 translate-x-full flex flex-col justify-between p-4 fixed border rounded-tl-sm rounded-bl-sm border-stone-500 shadow-xl shadow-stone-400 w-[80dvw] h-[calc(100dvh-80px)] bg-white z-60 top-20 right-0"
+>
+  <div class="gap-4 flex flex-col">
+    <button
+      id="cart-panel-close"
+      class="border border-stone-800 rounded-full w-8 h-8">X</button
+    >
+    <p class="text-5xl w-full text-center">Tu pedido</p>
+    <a
+      href="/checkout"
+      class="w-full rounded-sm p-4 bg-blue-800 text-2xl text-center text-white"
+      >Ir al carrito</a
+    >
+  </div>
+  <div id="cart-products"></div>
+  <div class="flex flex-col">
+    <hr />
+    <div class="flex text-3xl justify-between p-2 pb-6">
+      <p>Total</p><p id="cart-total"></p>
+    </div>
+  </div>
+</div>

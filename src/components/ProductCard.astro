@@ -1,21 +1,21 @@
 ---
 import { Image } from "astro:assets";
-import Button from "./Button.astro";
+import CartButton from "./CartButton.astro";
 
 const { id, name, price, image } = Astro.props;
 ---
 
 <div
-  class="h-80 border-subtitle mx-auto lg:my-4 flex w-[50dvw] md:w-[15dvw] flex-col items-center border p-4 shadow-lg hover:-translate-y-2 hover:shadow-xl"
+  class="carousel-card h-80 border-subtitle shrink-0 lg:my-4 flex w-[60dvw] md:w-60 flex-col items-center border p-4 shadow-lg hover:-translate-y-2 hover:shadow-xl"
 >
   <Image src={image} alt={name} />
   <h2 class="text-subtitle text-lg">{name}</h2>
   <div class="mt-auto flex items-center justify-between">
-    <p class="px-4 text-base">${price}</p><Button
-      class="text-sm h-6 flex items-center shadow-stone-400"
-      variant="primary"
-      href="https://wa.me/5491112345678?text=Hola!%20Quiero%20hacer%20un%20pedido%20"
-      target="_blank">Pedir</Button
-    >
+    <p class="px-4 text-base">${price}</p><CartButton
+      {id}
+      {name}
+      {price}
+      {image}
+    />
   </div>
 </div>

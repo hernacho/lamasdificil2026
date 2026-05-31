@@ -1,0 +1,35 @@
+---
+import "../styles/global.css";
+
+import Navbar from "../components/Navbar.astro";
+import CartToast from "../components/CartToast.astro";
+import CartPanel from "../components/CartPanel.astro";
+---
+
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body class="min-w-dvw">
+    <Navbar />
+    <CartPanel />
+    <slot />
+    <CartToast />
+
+    <script>
+      import "../scripts/modal.js";
+      import "../scripts/cart.js";
+    </script>
+  </body>
+</html>
