@@ -1,0 +1,48 @@
+---
+import { instagramPosts } from "../assets/constants/instagram.ts";
+import Title from "./Title.astro";
+import InstagramPost from "./InstagramPost.astro";
+---
+
+<section class="h-min-dvh instagram-swiper my-40 border">
+  <!-- <Title title="Últimas publicaciones en Instagram" /> -->
+  <h3>Compartí tus fotos en Instagram junto a #lamasdificil</h3>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {
+        instagramPosts.map((post) => (
+          <div class="swiper-slide">
+            <InstagramPost {...post} />
+          </div>
+        ))
+      }
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination } from "swiper/modules";
+
+  const swiper = new Swiper(".swiper", {
+    modules: [Navigation, Pagination],
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: { el: ".swiper-pagination" },
+    slidesPerView: 1,
+  });
+</script>
+
+<style is:global>
+  .instagram-swiper .swiper-pagination {
+    bottom: -20px;
+  }
+  .instagram-swiper {
+    overflow: visible;
+  }
+</style>

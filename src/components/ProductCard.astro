@@ -2,20 +2,27 @@
 import { Image } from "astro:assets";
 import CartButton from "./CartButton.astro";
 
-const { id, name, price, image } = Astro.props;
+const { id, name, desc, price, image, link } = Astro.props;
+
+const cardHeight = desc ? "h-96" : "h-80";
+const imgHeight = desc ? "h-52 w-auto" : "h-60 w-auto";
+const notCardLink = link ? "hidden" : "flex";
+const cardLink = link ? "flex" : "hidden";
 ---
 
 <div
-  class="carousel-card h-80 border-subtitle shrink-0 lg:my-4 flex w-[60dvw] md:w-60 flex-col items-center border p-4 shadow-lg hover:-translate-y-2 hover:shadow-xl"
+  class={`card carousel-card ${cardHeight} border-subtitle shrink-0 lg:my-4 flex w-[60dvw] md:w-60 flex-col items-center border p-4 shadow-lg hover:-translate-y-2 hover:shadow-xl`}
 >
-  <Image src={image} alt={name} />
+  <Image src={image} alt={name} class={`${imgHeight}`} />
   <h2 class="text-subtitle text-lg">{name}</h2>
+  <p class="text-sm text-stone-500 mx-2">{desc}</p>
   <div class="mt-auto flex items-center justify-between">
-    <p class="px-4 text-base">${price}</p><CartButton
-      {id}
-      {name}
-      {price}
-      {image}
-    />
+    <p class={`${notCardLink} px-4 text-base`}>${price}</p>
+    <a
+      href={link}
+      class={`${cardLink} bg-cta hover:bg-cta-hover shadow-stone-400 rounded-full text-white shadow-lg hover:scale-105 transition-all duration-300 text-sm flex items-center p-2`}
+      >Encontrá la figu que te falta</a
+    >
+    <CartButton {id} {name} {desc} {price} {image} class={`${notCardLink}`} />
   </div>
 </div>

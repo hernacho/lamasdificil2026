@@ -4,18 +4,24 @@ import { groups } from "../assets/constants/groups";
 import Hero from "../components/Hero.astro";
 import Sponsors from "../components/Sponsors.astro";
 import Timer from "../components/Timer.astro";
-import Products from "../components/Products.astro";
+import MasBuscadas from "../components/MasBuscadas.astro";
 import Groups from "../components/Groups.astro";
 import TeamModal from "../components/TeamModal.astro";
+import Products from "../components/Products.astro";
+import Steps from "../components/Steps.astro";
+import InstagramFeed from "../components/InstagramFeed.astro";
 ---
 
 <BaseLayout>
   <Hero />
+  <InstagramFeed />
   <Sponsors />
   <Timer />
-  <Products />
+  <MasBuscadas />
+  <Steps />
   <Groups />
   <TeamModal />
+  <Products />
 </BaseLayout>
 
 <script define:vars={{ groups }}>

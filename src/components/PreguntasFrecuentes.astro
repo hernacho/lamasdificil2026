@@ -1,0 +1,23 @@
+---
+import { faqs } from "../assets/constants/index";
+---
+
+<section id="faqs" class="min-h-fit py-10">
+  <h2
+    class="py-10 flex w-full h-20 items-center justify-center text-white bg-linear-to-b from-amber-950 to-amber-900 text-2xl lg:text-4xl"
+  >
+    Preguntas frecuentes
+  </h2>
+  {
+    faqs.map((faq) => (
+      <details>
+        <summary class="text-blue-950 mx-2 mt-2 border border-blue-300 rounded-t-2xl bg-linear-to-r from-blue-200 to-blue-100 p-2">
+          {faq.question}
+        </summary>
+        <p class="text-blue-700 mx-2 p-4 border border-blue-300 rounded-b-sm">
+          {faq.answer}
+        </p>
+      </details>
+    ))
+  }
+</section>

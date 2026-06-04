@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import album from "../assets/images/backgrounds/album.webp";
+---
+
+<section id="mision" class="min-h-[80dvh] min-w-dvw">
+  <h2
+    class="flex w-full h-20 items-center justify-center text-white bg-linear-to-b from-amber-950 to-amber-900 text-2xl lg:text-4xl"
+  >
+    Sobre nosotros
+  </h2>
+  <div class="flex flex-col lg:flex-row w-full">
+    <div
+      class="lg:w-[40%] text-primary mx-4 p-4 text-base leading-normal lg:leading-relaxed lg:p-10 space-y-4"
+    >
+      <p>
+        En <span class="font-bold">lamasdifícil.com</span> sabemos lo que se siente
+        buscar sin descanso LA figurita, esa que parece imposible de conseguir, porque
+        también nos encanta coleccionarlas ¡y conocemos la euforia que se siente al
+        completar el álbum!
+      </p>
+      <p>
+        Desde hace más de 4 años nos dedicamos a ofrecer las figuritas del
+        mundial más difíciles de conseguir. Ya te ayudamos a llenar tu álbum de
+        Qatar 2022 y ahora queremos que llenes con nosotros el de <span
+          class="font-bold">Estados Unidos, México y Canadá 2026.</span
+        >
+      </p>
+      <p>
+        Más que una tienda, queremos ser ese amigo que siempre te hace la
+        segunda en tu manija extrema con el mundial. ¡No pierdas la oportunidad
+        de vivir la increíble experiencia de completar el álbum de un
+        <span class="font-bold">campeonato histórico</span>!
+      </p>
+    </div>
+    <Image src={album} alt="album" class="lg:w-[50%] lg:p-10" />
+  </div>
+</section>

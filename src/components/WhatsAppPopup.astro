@@ -1,0 +1,65 @@
+---
+import Icon from "../components/Icon.astro";
+const { phone } = Astro.props;
+---
+
+<div>
+  <div
+    class="pointer-events-none lg:w-80 opacity-0 transition-opacity duration-300 flex-col flex whatsapp-popup bg-white w-[80dvw] h-56 border bottom-24 right-4 fixed rounded-2xl z-50"
+  >
+    <div class="bg-[#128c7e] text-white flex justify-between p-2">
+      <p>LaMasDificil</p><button id="close-wa-popup-btn">X</button>
+    </div>
+    <div class="bg-[#e5ddd5] h-16 flex p-2 items-center justify-center">
+      <p class="rounded-sm bg-white h-10 p-2">
+        Hola, ¿en qué podemos ayudarte?
+      </p>
+    </div>
+    <div class="flex items-center justify-between p-4 w-full">
+      <textarea
+        placeholder="Hola! quiero hacer un pedido"
+        class="border border-stone-300 rounded-xl p-4 w-[90%]"
+      ></textarea><button data-phone={phone} id="send-wa-btn" class="w-6 h-6"
+        ><Icon name="send" /></button
+      >
+    </div>
+  </div>
+  <div
+    class="z-50 animate-pulse w-14 h-14 fixed justify-center items-center flex bottom-4 right-4 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300"
+  >
+    <button id="whatsapp-popup-btn">
+      <Icon name="whatsapp" class="w-10 h-10" />
+    </button>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const popUp = document.querySelector(".whatsapp-popup");
+
+    document
+      .getElementById("whatsapp-popup-btn")
+      ?.addEventListener("click", () => {
+        popUp?.classList.remove("opacity-0");
+        popUp?.classList.remove("pointer-events-none");
+        console.log("click");
+      });
+
+    document
+      .getElementById("close-wa-popup-btn")
+      ?.addEventListener("click", () => {
+        popUp?.classList.add("opacity-0");
+        popUp?.classList.add("pointer-events-none");
+      });
+
+    const sendWa = document.getElementById("send-wa-btn");
+    sendWa?.addEventListener("click", () => {
+      const textAreaWa = document.querySelector("textarea");
+      const userText = textAreaWa?.value.trim() || textAreaWa?.placeholder;
+
+      const phoneNumber = sendWa?.dataset.phone;
+
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(userText)}`;
+      window.open(url, "_blank");
+    });
+  });
+</script>

@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import Icono from "./Icon.astro";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/images/instagram/*.jpg",
+  {
+    eager: true,
+  },
+);
+
+const { avatar, username, location, image, likes, caption, date } = Astro.props;
+const parts = caption.split(/(@\w+)/);
+---
+
+<div class="border border-stone-400 rounded-xl h-[625px] w-87.5 m-2">
+  <!-- Encabezado -->
+  <div class="flex justify-between p-3">
+    <Image
+      src={images[`../assets/images/instagram/${avatar}`].default}
+      alt="avatar"
+      class="hover:cursor-pointer rounded-full w-12 h-12 flex items-center justify-center"
+    />
+    <div class="w-full px-3">
+      <p class="hover:cursor-pointer">{username}</p><p class="text-sm">
+        {location}
+      </p>
+    </div>
+    <button class="hover:cursor-pointer instagram-btn font-semibold">...</button
+    >
+  </div>
+  <!-- Imagen -->
+  <div class="h-80 bg-[#f5f4ed] flex items-center justify-center">
+    <Image
+      src={images[`../assets/images/instagram/${image}`].default}
+      alt="image"
+    />
+  </div>
+  <!-- Íconos me gusta, mensaje, compartir-->
+  <div class="flex justify-between px-3 py-2">
+    <div class="flex gap-2">
+      <Icono class="hover:cursor-pointer w-6 h-6 instagram-btn" name="like" />
+      <Icono
+        class="hover:cursor-pointer w-6 h-6 instagram-btn"
+        name="comment"
+      />
+      <Icono class="hover:cursor-pointer w-6 h-6 instagram-btn" name="share" />
+    </div>
+    <!-- Ícono de guardar -->
+    <Icono class="hover:cursor-pointer w-6 h-6 instagram-btn" name="save" />
+  </div>
+  <div class="p-3">
+    <p class="hover:cursor-pointer instagram-btn">{likes} me gusta</p>
+    <!-- Contenido -->
+    <p class="hover:cursor-pointer h-32 text-sm py-2">
+      <span class="font-semibold">{username}</span>
+      {
+        parts.map((part: string) =>
+          part.startsWith("@") ? (
+            <span class="text-blue-500 cursor-pointer instagram-btn">
+              {part}
+            </span>
+          ) : (
+            part
+          ),
+        )
+      }
+    </p>
+    <p class="text-base">{date}</p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll(".instagram-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      window.open("https://www.instagram.com", "_blank");
+      btn.classList.add("hover:pointer");
+    });
+  });
+</script>

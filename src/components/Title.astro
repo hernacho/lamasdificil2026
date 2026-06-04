@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string;
+  class?: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<h2
+  class="flex w-full h-20 items-center justify-center text-white bg-linear-to-b from-amber-950 to-amber-900 text-2xl lg:text-4xl"
+>
+  {title}
+</h2>

@@ -1,0 +1,20 @@
+Hacer
+
+6-Sección elijo creer
+
+Modificar
+2-Carrusel con fotos y "compartí tu foto con el hashtag"
+1-Cuenta atrás
+2-Usar Swiper para carruseles
+3-Home que no dice nada
+4-¿Animaciones?
+5-Tamaño de carrusel de sponsors
+6-Carrito: El carrito está vacío
+7-Panel del carrito en desktop
+8-Enviar el mensaje de WhatsApp con ENTER
+
+Hecho
+1-Pasos para comprar
+3-Ícono de Whatsapp con ventana emergente
+4-Footer
+5-Sección de contacto

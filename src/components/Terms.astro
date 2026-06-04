@@ -1,0 +1,23 @@
+---
+import { terms } from "../assets/constants/index";
+---
+
+<section id="terminos-y-condiciones" class="py-10">
+  <h2
+    class="flex w-full h-20 items-center justify-center text-white bg-linear-to-b from-amber-950 to-amber-900 text-2xl lg:text-4xl"
+  >
+    Términos y condiciones
+  </h2>
+  <div class="p-4 flex flex-col gap-4">
+    {
+      terms.map((term, index) => (
+        <div>
+          <p class="font-bold text-base text-blue-950">
+            {index + 1}. {term.title}
+          </p>
+          <p class="text-blue-700 text-sm">{term.content}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

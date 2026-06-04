@@ -1,8 +1,11 @@
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 
 @theme {
   --background-image-hero: url("/hero.png");
-  --color-primary: #123c73;
+  --color-primary: #151f4c;
   --color-bg-light: #f8fafc;
   --color-bg-variant: #e8eef5;
   --color-cta: #e63946;

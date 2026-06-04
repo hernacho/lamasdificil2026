@@ -100,9 +100,155 @@ export const sponsors = [
 
 export const links = [
   { name: "Home", href: "/" },
-  { name: "Más buscadas", href: "#" },
+  { name: "Más buscadas", href: "/#mas-buscadas" },
   { name: "Grupos", href: "/#grupos" },
   { name: "Productos", href: "/#productos" },
-  { name: "Sobre nosotros", href: "#" },
+  { name: "Sobre nosotros", href: "/#nosotros" },
   { name: "Contactanos", href: "#" },
+];
+
+export const steps = [
+  {
+    id: 1,
+    name: "album",
+    title: "Encontrá la figurita que te falta",
+    desc: "¿Te falta la última figurita? ¡Acá podés conseguirla y completar tu álbum!",
+  },
+  {
+    id: 2,
+    name: "shipping",
+    title: "Envío gratis",
+    desc: "Realizamos envíos gratis en todo el país si tu compra es mayor a $50000",
+  },
+  {
+    id: 3,
+    name: "payment",
+    title: "Elegí cómo pagar",
+    desc: "Podés pagar con tarjeta, débito o transferencia en hasta 12 cuotas sin interés",
+  },
+];
+
+type FooterLink = {
+  label: string;
+  url: string;
+  name?: string;
+};
+
+type FooterSection = {
+  title: string;
+  links: FooterLink[];
+};
+
+export const footerLinks: FooterSection[] = [
+  {
+    title: "Productos",
+    links: [
+      { label: "Figuritas", url: "/productos/figuritas" },
+      { label: "Promociones", url: "/productos/promociones" },
+      { label: "Precios", url: "/productos/precios" },
+    ],
+  },
+  {
+    title: "Sobre Nosotros",
+    links: [
+      { label: "Nuestra misión", url: "/nosotros#mision" },
+      {
+        label: "Terminos y condiciones",
+        url: "/nosotros#terminos-y-condiciones",
+      },
+      {
+        label: "Preguntas frecuentes",
+        url: "/nosotros#faqs",
+      },
+    ],
+  },
+  {
+    title: "Contactanos",
+    links: [
+      { label: "Danos Tu Opinión", url: "/contacto/opinion" },
+      { label: "Envia tu CV", url: "/contacto/cv" },
+    ],
+  },
+  {
+    title: "Redes Sociales",
+    links: [
+      {
+        label: "Facebook",
+        name: "facebook",
+        url: "https://www.facebook.com",
+      },
+      { label: "X", name: "x", url: "https://www.x.com" },
+      {
+        label: "Instagram",
+        name: "instagram",
+        url: "https://www.instagram.com",
+      },
+    ],
+  },
+];
+
+export const faqs = [
+  {
+    question: "¿Cómo sé que las figuritas son originales?",
+    answer:
+      "Todas nuestras figuritas son 100% originales. Trabajamos únicamente con material de primera mano y garantizamos la autenticidad de cada figurita que vendemos.",
+  },
+  {
+    question: "¿Hacen envíos a todo el país?",
+    answer:
+      "Sí, enviamos a todo el territorio argentino. Los plazos y costos de envío varían según la localidad. Consultanos por WhatsApp para más información.",
+  },
+  {
+    question: "¿Puedo devolver una figurita si ya la tengo?",
+    answer:
+      "No aceptamos devoluciones por duplicados. Te recomendamos revisar bien tu álbum antes de realizar la compra. Sí aceptamos cambios si la figurita llega en mal estado.",
+  },
+  {
+    question: "¿Cómo publican las figuritas disponibles?",
+    answer:
+      "El stock se actualiza constantemente en nuestra web y en nuestras redes sociales. También podés consultarnos directamente si estás buscando una figurita en particular.",
+  },
+  {
+    question: "¿Aceptan figuritas en parte de pago?",
+    answer:
+      "Sí, dependiendo de la figurita podemos aceptar canjes o parte de pago. Consultanos por WhatsApp con fotos de las figuritas que querés ofrecer.",
+  },
+  {
+    question: "¿Cómo se determina el precio de una figurita difícil?",
+    answer:
+      "El precio depende de la rareza, la demanda y el estado de conservación de la figurita. Nos manejamos con precios de mercado y siempre buscamos ser justos con nuestros clientes.",
+  },
+];
+
+export const terms = [
+  {
+    title: "Compras y pagos",
+    content:
+      "Las compras se confirman una vez acreditado el pago. Aceptamos transferencia bancaria, MercadoPago y efectivo en caso de retiro en persona.",
+  },
+  {
+    title: "Envíos",
+    content:
+      "Realizamos envíos a todo el país por correo o Andreani. El costo y plazo dependen del destino. No nos hacemos responsables por demoras del servicio de correo una vez despachado el paquete.",
+  },
+  {
+    title: "Estado de las figuritas",
+    content:
+      "Todas las figuritas se describen con su estado real (impecable, muy bueno, bueno). Las fotos del producto son reales.",
+  },
+  {
+    title: "Devoluciones",
+    content:
+      "Aceptamos devoluciones solo si la figurita llega en un estado diferente al descripto. El reclamo debe hacerse dentro de las 48hs de recibido el pedido.",
+  },
+  {
+    title: "Precios",
+    content:
+      "Los precios pueden variar según disponibilidad y demanda del mercado. El precio válido es el publicado al momento de confirmar la compra.",
+  },
+  {
+    title: "Reservas",
+    content:
+      "Podés reservar una figurita por hasta 24hs. Pasado ese tiempo sin confirmación de pago, la reserva se cancela.",
+  },
 ];
