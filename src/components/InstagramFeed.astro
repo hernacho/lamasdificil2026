@@ -4,9 +4,11 @@ import Title from "./Title.astro";
 import InstagramPost from "./InstagramPost.astro";
 ---
 
-<section class="h-min-dvh instagram-swiper my-40 border">
-  <!-- <Title title="Últimas publicaciones en Instagram" /> -->
-  <h3>Compartí tus fotos en Instagram junto a #lamasdificil</h3>
+<section class="h-min-dvh instagram-swiper my-40">
+  <Title title="Últimas publicaciones en Instagram" />
+  <h3 class="text-center text-2xl py-4">
+    Compartí tus fotos en Instagram junto a #lamasdificil
+  </h3>
   <div class="swiper">
     <div class="swiper-wrapper">
       {
@@ -25,24 +27,70 @@ import InstagramPost from "./InstagramPost.astro";
 
 <script>
   import Swiper from "swiper";
-  import { Navigation, Pagination } from "swiper/modules";
+  import {
+    Navigation,
+    Pagination,
+    Autoplay,
+    EffectCoverflow,
+  } from "swiper/modules";
 
   const swiper = new Swiper(".swiper", {
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, Autoplay, EffectCoverflow],
+    slidesPerView: 1,
+    spaceBetween: 16,
+    centeredSlides: true,
+    loop: true,
+    effect: "coverflow",
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 1,
+      depth: 120,
+      scale: 0.9,
+      modifier: 1,
+      slideShadows: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-    pagination: { el: ".swiper-pagination" },
-    slidesPerView: 1,
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    },
   });
 </script>
 
 <style is:global>
-  .instagram-swiper .swiper-pagination {
-    bottom: -20px;
+  .swiper {
+    width: 100%;
+    height: 700px;
   }
   .instagram-swiper {
     overflow: visible;
+  }
+
+  .instagram-swiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    filter: blur(2px);
+    transition: filter 0.3s;
+  }
+
+  .instagram-swiper .swiper-slide-active {
+    filter: blur(0);
+  }
+
+  @media (min-width: 1024px) {
+    .swiper {
+      width: 60%;
+    }
   }
 </style>
