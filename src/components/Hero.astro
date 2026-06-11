@@ -1,5 +1,76 @@
+---
+import { slidesHome } from "../assets/constants/index";
+import { Image } from "astro:assets";
+
+const slidesImg = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/images/slides/*.jpg",
+
+  { eager: true },
+);
+---
+
 <section
   id="home"
-  class="bg-hero relative h-screen w-screen4er bg-cover bg-center"
+  class="bg-hero relative h-screen w-screen bg-cover bg-center flex flex-col items-center justify-center"
 >
+  <div class="lg:top-12 swiper swiper-hero relative w-full">
+    <div class="swiper-wrapper w-full h-full">
+      {
+        slidesHome.map((slide) => (
+          <article class="swiper-slide h-full">
+            <>
+              <Image
+                src={
+                  slidesImg[`../assets/images/slides/${slide.image}`].default
+                }
+                alt="Home"
+                class="w-full object-cover h-[80%] lg:object-contain"
+              />
+              <a href={slide.href} target="_blank" rel="noopener noreferrer">
+                <button class="lg:w-100 lg:mx-[30%] rounded-2xl w-full bg-linear-to-br from-blue-900 to-blue-800 text-white  hover:from-cyan-400 hover:to-blue-500 font-bold py-2 px-6 transition-all duration-300 cursor-pointer ">
+                  {slide.text}
+                </button>
+              </a>
+            </>
+          </article>
+        ))
+      }
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
 </section>
+
+<script>
+  import Swiper from "swiper";
+  import { Pagination, Autoplay } from "swiper/modules";
+
+  const swiper = new Swiper(".swiper-hero", {
+    modules: [Pagination, Autoplay],
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+  });
+</script>
+
+<style is:global>
+  .swiper-hero {
+    width: 100%;
+    height: 500px;
+  }
+
+  @media (min-width: 1024px) {
+    .swiper-hero {
+      height: 80dvh;
+    }
+  }
+</style>

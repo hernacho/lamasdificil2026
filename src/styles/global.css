@@ -7,6 +7,8 @@
 
 @theme {
   --background-image-hero: url("/hero.png");
+  --background-image-timer: url("/arco.jpg");
+  --background-image-contact: url("/background-contact.jpg");
   --color-primary: #151f4c;
   --color-bg-light: #f8fafc;
   --color-bg-variant: #e8eef5;
@@ -27,6 +29,10 @@ h3 {
   font-family: "Bebas Neue", sans-serif;
 }
 
+.timer {
+  font-family: "Orbitron", sans-serif;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -34,4 +40,8 @@ h3 {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
 }

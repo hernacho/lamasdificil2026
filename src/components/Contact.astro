@@ -1,0 +1,105 @@
+---
+import { Image } from "astro:assets";
+import hinchada from "../assets/images/hinchada-argentina.jpg";
+---
+
+<section
+  id="contact"
+  class="p-4 bg-contact bg-cover text-white lg:px-48 lg:py-10 flex flex-col gap-6"
+>
+  <h2 class="text-xl lg:text-3xl lg:text-center">Contactanos</h2>
+  <div class="lg:flex lg:items-center lg:justify-between">
+    <div class="flex flex-col gap-4">
+      <p class="lg:w-full">
+        En La más difícil tu opinión nos importa y además... ¡Estamos tan
+        manijas como vos con el mundial! así que mandanos tus comentarios.
+        Aceptamos todo tipo de Elijo creer y también anulaciones de mufa.
+      </p>
+    </div>
+    <div class="p-2">
+      <Image
+        src={hinchada}
+        alt="hinchada argentina"
+        class="rounded-sm w-full lg:w-100 lg:hidden block"
+      />
+    </div>
+  </div>
+  <div
+    class="lg:flex lg:justify-between h-full lg:items-stretch border p-4 rounded-xl"
+  >
+    <form class="flex flex-col gap-2 lg:gap-6 lg:w-full">
+      <fieldset>
+        <legend class="text-center text-2xl">Formulario de contacto</legend>
+      </fieldset>
+      <div class="flex flex-col">
+        <label class="" for="nombre">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          required
+          placeholder="Tu nombre completo"
+          class="bg-linear-to-br from-blue-100 to-blue-200 rounded-sm p-2 text-stone-900"
+        />
+      </div>
+      <div class="flex flex-col">
+        <label for="email">Correo Electrónico</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="tu@email.com"
+          class="bg-linear-to-br from-blue-100 to-blue-200 rounded-sm p-2 text-stone-900"
+        />
+      </div>
+      <div class="flex flex-col">
+        <label for="mensaje">Mensaje</label>
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          rows="4"
+          required
+          placeholder="Escribe tu mensaje aquí..."
+          class="bg-linear-to-br from-blue-100 to-blue-200 rounded-sm p-2 text-stone-900"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="bg-linear-to-br from-blue-900 to-blue-800 text-white border border-blue-200 hover:from-cyan-400 hover:to-blue-500 font-bold py-2 px-6 rounded-full transition-all duration-300 cursor-pointer hover:scale-105"
+      >
+        Enviar
+      </button>
+    </form>
+    <div class="p-2 h-full">
+      <Image
+        src={hinchada}
+        alt="hinchada argentina"
+        class="border border-white rounded-sm w-full lg:w-125 hidden lg:block h-96 object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  import emailjs from "@emailjs/browser";
+
+  document.querySelector("form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_32f4hym",
+        "template_6mfk00q",
+        e.target as HTMLFormElement,
+        "npZcAAuTpGA8sJcNc",
+      )
+      .then(() => {
+        alert("¡Mensaje enviado!");
+        (e.target as HTMLFormElement).reset();
+      })
+      .catch(() => {
+        alert("Hubo un error, intentá de nuevo.");
+      });
+  });
+</script>

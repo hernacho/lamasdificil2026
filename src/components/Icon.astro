@@ -59,28 +59,7 @@ const { name, class: className, id: idElement } = Astro.props;
 
 {
   name === "navigation" && (
-    <svg
-  class={className}
-  viewBox="0 0 215 185"
-  fill="currentColor"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <!-- Triángulo redondeado -->
-  <path
-    d="M18 24C11 7 28 -8 45 2L199 82C216 92 216 116 199 126L45 182C28 192 11 177 18 160L42 102C45 95 45 89 42 82L18 24Z"
-    fill="#acd0ff"
-  />
-
-  <!-- Barra horizontal -->
-  <rect
-    x="20"
-    y="84"
-    width="195"
-    height="20"
-    rx="10"
-    fill="#0174f8"
-  />
-</svg>
+    <svg class="swiper-navigation-icon" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.38296 20.0762C0.111788 19.805 0.111788 19.3654 0.38296 19.0942L9.19758 10.2796L0.38296 1.46497C0.111788 1.19379 0.111788 0.754138 0.38296 0.482966C0.654131 0.211794 1.09379 0.211794 1.36496 0.482966L10.4341 9.55214C10.8359 9.9539 10.8359 10.6053 10.4341 11.007L1.36496 20.0762C1.09379 20.3474 0.654131 20.3474 0.38296 20.0762Z" fill="currentColor"></path></svg>
   )
 }
 
@@ -261,5 +240,20 @@ const { name, class: className, id: idElement } = Astro.props;
 {name==="save" && (
   <svg class={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.75 6L7.5 5.25H16.5L17.25 6V19.3162L12 16.2051L6.75 19.3162V6ZM8.25 6.75V16.6838L12 14.4615L15.75 16.6838V6.75H8.25Z" fill="currentColor"/>
+</svg>
+)}
+
+{name==="click" && (
+  <svg 
+  id={idElement}
+  class={className}
+  viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="48" height="48" fill="white" fill-opacity="0.01"/>
+<path d="M24 4V12" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22 22L42 26L36 30L42 36L36 42L30 36L26 42L22 22Z" fill="#2F88FF" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M38.1421 9.85795L32.4853 15.5148" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.85787 38.1421L15.5147 32.4852" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4 24H12" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.85783 9.85787L15.5147 15.5147" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 )}

@@ -1,0 +1,30 @@
+---
+import { ELIJO_CREER } from "../assets/constants/elijoCreer";
+import ElijoCreerCard from "./ElijoCreerCard.astro";
+import Title from "../components/Title.astro";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/elijo-creer/*.jpg",
+
+  { eager: true },
+);
+---
+
+<section id="elijo" class="flex flex-col w-full min-h-full">
+  <Title title="Elijo creer... ¡y anulo mufa!" />
+  <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+    {
+      ELIJO_CREER.map((item) => {
+        const { image, ...rest } = item;
+        return (
+          <div class={rest.span}>
+            <ElijoCreerCard
+              {...rest}
+              image={images[`/src/assets/images/elijo-creer/${image}`]?.default}
+            />
+          </div>
+        );
+      })
+    }
+  </div>
+</section>

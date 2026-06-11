@@ -1,115 +1,43 @@
 ---
 import { items } from "../assets/constants/items";
 import ProductCard from "./ProductCard.astro";
-import Icon from "../components/Icon.astro";
+import Title from "../components/Title.astro";
 ---
 
-<section
-  id="productos"
-  class="carousel min-w-dvw my-4 flex flex-col items-center lg:items-start"
->
-  <h2
-    class="flex w-full h-20 items-center justify-center text-white bg-linear-to-b from-amber-950 to-amber-900 text-2xl lg:text-4xl"
-  >
-    Otros productos
-  </h2>
-  <div class="mx-auto flex max-w-screen flex-wrap justify-center">
-    {/* Contenedor externo */}
-    <div class="h-100 w-dvw justify-center flex items-center">
-      <button
-        class="bg-primary rounded-full w-12 h-12 items-center justify-center mx-2 hidden lg:flex carousel-prev"
-      >
-        <Icon name="navigation" class="w-8 h-8 rotate-180" />
-      </button>
-      <div
-        class="carousel-viewport viewport overflow-x-auto w-[80dvw] scroll-smooth snap-x snap-mandatory scrollbar-hide"
-      >
-        {/* Track */}
-        <div
-          class="carousel-track flex flex-nowrap transition-transform duration-300 w-max"
-        >
-          {
-            items.map((item, index) => (
-              <div
-                class="mx-2 lg:mx-4 snap-start"
-                style={`transition-delay: ${index * 150}ms`}
-              >
-                <ProductCard {...item} />
-              </div>
-            ))
-          }
-        </div>
-      </div>
-      <button
-        class="bg-primary rounded-full w-12 h-12 items-center justify-center mx-2 hidden lg:flex carousel-next"
-      >
-        <Icon name="navigation" class="w-8 h-8" />
-      </button>
+<section id="productos" class="my-4 flex flex-col items-center">
+  <Title title="Otros productos" />
+  <div class="swiper productos-swiper" style="height: 400px; width: 90%;">
+    <div class="swiper-wrapper">
+      {
+        items.map((item) => (
+          <div class="swiper-slide flex justify-center">
+            <ProductCard {...item} />
+          </div>
+        ))
+      }
     </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 </section>
 
 <script>
-  window.addEventListener("load", () => {
-    const carousels = document.querySelectorAll(".carousel");
-    carousels.forEach((carousel) => {
-      const track = carousel.querySelector<HTMLElement>(".carousel-track");
-      const viewport =
-        carousel.querySelector<HTMLElement>(".carousel-viewport");
-      const nextBtn =
-        carousel.querySelector<HTMLButtonElement>(".carousel-next");
-      const prevBtn =
-        carousel.querySelector<HTMLButtonElement>(".carousel-prev");
-      if (!track || !viewport) return;
+  import Swiper from "swiper";
+  import { Navigation } from "swiper/modules";
 
-      let currentIndex = 0;
-      let stabilizeTimer: ReturnType<typeof setTimeout> | undefined;
-
-      if (typeof ResizeObserver !== "undefined") {
-        const observer = new ResizeObserver(() => {
-          clearTimeout(stabilizeTimer);
-          stabilizeTimer = setTimeout(() => {
-            updateCarousel();
-          }, 100);
-        });
-        observer.observe(track);
-      }
-
-      nextBtn?.addEventListener("click", () => {
-        const maxOffset = track.scrollWidth - viewport.clientWidth;
-        const nextOffset = (currentIndex + 1) * viewport.clientWidth;
-        if (nextOffset <= maxOffset) {
-          currentIndex++;
-        } else {
-          currentIndex = Math.ceil(maxOffset / viewport.clientWidth);
-        }
-        updateCarousel();
-      });
-
-      prevBtn?.addEventListener("click", () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateCarousel();
-        }
-      });
-
-      function updateCarousel() {
-        if (!track || !viewport) return;
-        const maxOffset = track.scrollWidth - viewport.clientWidth;
-        const rawOffset = currentIndex * viewport.clientWidth;
-        const offset = Math.min(rawOffset, maxOffset);
-        track.style.transform = `translateX(-${offset}px)`;
-        if (prevBtn) {
-          prevBtn.disabled = currentIndex === 0;
-          prevBtn.classList.toggle("invisible", currentIndex === 0);
-        }
-        if (nextBtn) {
-          nextBtn.disabled = offset >= maxOffset;
-          nextBtn.classList.toggle("invisible", offset >= maxOffset);
-        }
-      }
-
-      updateCarousel();
-    });
+  new Swiper(".productos-swiper", {
+    modules: [Navigation],
+    slidesPerView: 1.5,
+    spaceBetween: 32,
+    navigation: {
+      nextEl: ".productos-swiper .swiper-button-next",
+      prevEl: ".productos-swiper .swiper-button-prev",
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 32,
+      },
+    },
   });
 </script>

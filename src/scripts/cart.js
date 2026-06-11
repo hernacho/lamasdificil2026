@@ -1,4 +1,6 @@
 const buttons = document.querySelectorAll("[data-id]");
+const label = document.getElementById("cart-label")
+
 let toastTimeout;
 
 buttons.forEach(button => {
@@ -33,6 +35,7 @@ function addToCart(product) {
     } else {
         cart.push({ ...product, quantity: 1 });
     }
+
     localStorage.setItem("cart", JSON.stringify(cart));
     document.getElementById("toast-product-name").textContent = product.name;
     document.getElementById("toast-product-image").src = product.image;
@@ -100,6 +103,15 @@ function renderCart() {
             updateCart(button.dataset.id, button.dataset.action);
         });
     });
+
+    // Ocultar o mostrar Tu carrito está vacío
+    if (cart.length > 0) {
+        label.classList.add("hidden");
+        label.classList.remove("block");
+    } else {
+        label.classList.remove("hidden");
+        label.classList.add("block");
+    }
 }
 
 // Actualizar cantidad o eliminar producto

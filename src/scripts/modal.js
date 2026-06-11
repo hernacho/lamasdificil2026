@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const dataTeam = document.querySelectorAll("[data-team]");
-
+    const groupClick = document.getElementById("group-click");
 
     dataTeam.forEach((team) => {
         team.addEventListener("click", () => {
@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.classList.remove("hidden");
             modal.classList.add("flex");
             document.body.style.overflow = "hidden";
-
 
             const selectedTeam = window.groups
                 .flatMap(group => group.teams)
@@ -22,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("modal-memo").textContent = selectedTeam.history.memo;
             document.getElementById("modal-name-country").textContent = selectedTeam.name;
             document.getElementById("modal-legends").textContent = selectedTeam.history.legends.join(", ");
+
+            groupClick.classList.add("hidden");
         });
     });
 })

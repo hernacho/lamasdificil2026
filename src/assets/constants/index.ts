@@ -101,10 +101,33 @@ export const sponsors = [
 export const links = [
   { name: "Home", href: "/" },
   { name: "Más buscadas", href: "/#mas-buscadas" },
-  { name: "Grupos", href: "/#grupos" },
+  { name: "Viví el mundial", href: "/#mundial" },
   { name: "Productos", href: "/#productos" },
-  { name: "Sobre nosotros", href: "/#nosotros" },
-  { name: "Contactanos", href: "#" },
+  { name: "Sobre nosotros", href: "/nosotros#mision" },
+  { name: "Contactanos", href: "/#contact" },
+];
+
+export const slidesHome = [
+  {
+    image: "slide-buscadas.jpg",
+    text: "Pedí la que te falta",
+    href: "/#mas-buscadas",
+  },
+  {
+    image: "slide-elijo-creer.jpg",
+    text: "Volvete a ilusionar",
+    href: "/#elijo",
+  },
+  {
+    image: "slide-historias.jpg",
+    text: "Compartí con nosotros",
+    href: "/#historias",
+  },
+  {
+    image: "slide-whatsapp.jpg",
+    text: "Te conseguimos la más difícil",
+    href: "https://wa.me/5491112345678?text=Hola!%20Quiero%20hacer%20un%20pedido%20",
+  },
 ];
 
 export const steps = [
@@ -143,9 +166,8 @@ export const footerLinks: FooterSection[] = [
   {
     title: "Productos",
     links: [
-      { label: "Figuritas", url: "/productos/figuritas" },
-      { label: "Promociones", url: "/productos/promociones" },
-      { label: "Precios", url: "/productos/precios" },
+      { label: "Más buscadas", url: "/#mas-buscadas" },
+      { label: "Otros productos", url: "/#productos" },
     ],
   },
   {
@@ -165,8 +187,14 @@ export const footerLinks: FooterSection[] = [
   {
     title: "Contactanos",
     links: [
-      { label: "Danos Tu Opinión", url: "/contacto/opinion" },
-      { label: "Envia tu CV", url: "/contacto/cv" },
+      {
+        label: "Mandá tu Elijo creer ¡o anulá mufa!",
+        url: "/contacto/opinion",
+      },
+      {
+        label: "Enviá tu CV",
+        url: "mailto:contacto@lamasdificil.com?subject=CV - Postulación",
+      },
     ],
   },
   {

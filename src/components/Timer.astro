@@ -1,29 +1,44 @@
-<section class="flex flex-col items-center h-60 bg-bg-variant gap-10 py-4">
-  <h2 class="text-title text-2xl">Faltan</h2>
-  <!-- Clock -->
-  <div class="text-subtitle flex flex-row justify-center gap-12">
-    <!-- Days -->
-    <div class="flex flex-col items-center">
-      <p class="text-2xl" id="days">00</p>
-      <p class="text-base">Días</p>
-    </div>
-    <!-- Hours -->
-    <div class="flex flex-col items-center">
-      <p class="text-2xl" id="hours">00</p>
-      <p class="text-base">Horas</p>
-    </div>
-    <!-- Minutes -->
-    <div class="flex flex-col items-center">
-      <p class="text-2xl" id="minutes">00</p>
-      <p class="text-base">Minutos</p>
-    </div>
-    <!-- Seconds -->
-    <div class="flex flex-col items-center">
-      <p class="text-2xl" id="seconds">00</p>
-      <p class="text-base">Segundos</p>
+<section class="timer h-60">
+  <div
+    class="bg-timer object-cover bg-no-repeat bg-position-[center_bottom_-100px] h-full w-full flex flex-col items-center gap-10 justify-center"
+  >
+    <h2
+      class="bg-linear-to-r from-cyan-400 to-blue-700 bg-clip-text text-transparent text-3xl"
+    >
+      El torneo comienza dentro de
+    </h2>
+    <!-- Clock -->
+    <div class="flex flex-row justify-center gap-8">
+      <!-- Days -->
+      <div
+        class="bg-linear-to-r from-cyan-400 to-blue-700 bg-clip-text text-transparent flex flex-col items-center"
+      >
+        <p class="text-4xl" id="days">00</p>
+        <p class="text-base">Días</p>
+      </div>
+      <!-- Hours -->
+      <div
+        class="bg-linear-to-r from-cyan-400 to-blue-700 bg-clip-text text-transparent flex flex-col items-center"
+      >
+        <p class="text-4xl" id="hours">00</p>
+        <p class="text-base">Horas</p>
+      </div>
+      <!-- Minutes -->
+      <div
+        class="bg-linear-to-r from-cyan-400 to-blue-700 bg-clip-text text-transparent flex flex-col items-center"
+      >
+        <p class="text-4xl" id="minutes">00</p>
+        <p class="text-base">Minutos</p>
+      </div>
+      <!-- Seconds -->
+      <div
+        class="bg-linear-to-r from-cyan-400 to-blue-700 bg-clip-text text-transparent flex flex-col items-center"
+      >
+        <p class="text-4xl" id="seconds">00</p>
+        <p class="text-base">Segundos</p>
+      </div>
     </div>
   </div>
-  <p class="text-2xl">Para el mundial!</p>
 </section>
 
 <script>

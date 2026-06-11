@@ -1,15 +1,16 @@
 ---
 import { Image } from "astro:assets";
 import { groups } from "../assets/constants/groups";
+import Title from "../components/Title.astro";
+import Icon from "../components/Icon.astro";
 ---
 
-<section id="grupos" class="w-dvw">
-  <h2
-    class="flex w-full h-20 items-center justify-center text-white bg-linear-to-b from-amber-950 to-amber-900 text-2xl lg:text-4xl"
+<section id="mundial" class="w-dvw">
+  <Title title="Conocé los grupos del mundial" />
+
+  <div
+    class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 relative"
   >
-    Conocé los grupos del mundial
-  </h2>
-  <div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
     {
       groups.map((group) => (
         <div>
@@ -30,5 +31,10 @@ import { groups } from "../assets/constants/groups";
         </div>
       ))
     }
+    <Icon
+      id="group-click"
+      name="click"
+      class="absolute w-20 h-20 top-20 left-40 animate-pulse"
+    />
   </div>
 </section>

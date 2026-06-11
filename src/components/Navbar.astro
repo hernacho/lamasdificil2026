@@ -15,7 +15,7 @@ import logo from "../assets/images/logo.png";
     </a>
     <NavLinks className="hidden lg:gap-6 lg:flex" linkClass="" />
     <button id="cart-panel-open">
-      <Icon name="shoppingCart" class="w-6 h-6" />
+      <Icon name="shoppingCart" class="w-6 h-6 mx-4 cursor-pointer" />
     </button>
     <Icon
       id="open-btn"
@@ -34,8 +34,8 @@ import logo from "../assets/images/logo.png";
     class="-translate-x-full transition-transform duration-500 fixed top-20 left-0 bg-primary w-full z-50 h-full"
   >
     <NavLinks
-      className="w-full h-full flex flex-col justify-between"
-      linkClass="p-4 text-white"
+      className="w-full gap-12 flex flex-col justify-between"
+      linkClass="p-6 text-white border-b menu-link"
     />
   </div>
 </nav>
@@ -57,5 +57,14 @@ import logo from "../assets/images/logo.png";
     menu?.classList.remove("translate-x-0");
     openBtn?.classList.remove("opacity-0", "pointer-events-none");
     closeBtn?.classList.add("opacity-0", "pointer-events-none");
+  });
+
+  document.querySelectorAll(".menu-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu?.classList.add("-translate-x-full");
+      menu?.classList.remove("translate-x-0");
+      openBtn?.classList.remove("opacity-0", "pointer-events-none");
+      closeBtn?.classList.add("opacity-0", "pointer-events-none");
+    });
   });
 </script>

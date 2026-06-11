@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout>
   <section
-    class="fixed top-20 h-[65dvh] lg:h-full min-w-dvw overflow-hidden lg:flex lg:flex-row lg:justify-center"
+    class="bg-white fixed top-20 h-[65dvh] lg:h-full min-w-dvw overflow-hidden lg:flex lg:flex-row lg:justify-center"
   >
     <div
       class="overflow-y-auto h-full pb-40 lg:w-[50dvw] lg:static"
@@ -48,6 +48,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     const cartProducts = document.getElementById("checkout-products");
 
     if (cartProducts) {
+      if (checkout.length === 0) {
+        cartProducts.innerHTML = "<p>Tu carrito está vacío</p>";
+        return;
+      }
       cartProducts.innerHTML = checkout
         .map(
           (item) => `

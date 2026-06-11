@@ -10,18 +10,24 @@ import TeamModal from "../components/TeamModal.astro";
 import Products from "../components/Products.astro";
 import Steps from "../components/Steps.astro";
 import InstagramFeed from "../components/InstagramFeed.astro";
+import Contact from "../components/Contact.astro";
+import ElijoCreer from "../components/ElijoCreer.astro";
+import Publicidad from "../components/Publicidad.astro";
 ---
 
 <BaseLayout>
   <Hero />
   <Sponsors />
   <Timer />
+  <Publicidad />
   <MasBuscadas />
   <Steps />
+  <Products />
   <Groups />
   <TeamModal />
-  <Products />
   <InstagramFeed />
+  <ElijoCreer />
+  <Contact />
 </BaseLayout>
 
 <script define:vars={{ groups }}>

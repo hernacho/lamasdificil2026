@@ -1,0 +1,29 @@
+---
+import { getImage } from "astro:assets";
+
+import publiMovil from "../assets/images/publicidad-movil.jpg";
+import publiDesktop from "../assets/images/publicidad-desktop.jpg";
+
+const mobile = await getImage({
+  src: publiMovil,
+});
+
+const desktop = await getImage({
+  src: publiDesktop,
+});
+---
+
+<article class="my-10">
+  <picture>
+    <source media="(min-width: 1024px)" srcset={desktop.src} />
+
+    <img
+      src={mobile.src}
+      alt="Publicidad"
+      width={mobile.attributes.width}
+      height={mobile.attributes.height}
+      loading="lazy"
+      class="w-full h-auto"
+    />
+  </picture>
+</article>
