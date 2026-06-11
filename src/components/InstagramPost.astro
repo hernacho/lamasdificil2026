@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Icono from "./Icon.astro";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -13,10 +12,10 @@ const parts = caption.split(/(@\w+)/);
 <div class="border border-stone-400 rounded-xl h-[625px] w-87.5 m-2">
   <!-- Encabezado -->
   <div class="flex justify-between p-3">
-    <Image
-      src={images[`/src/assets/images/instagram/${avatar}`]?.default}
+    <img
+      src={images[`/src/assets/images/instagram/${avatar}`]?.default?.src}
       alt="avatar"
-      class="hover:cursor-pointer rounded-full w-12 h-12 flex items-center justify-center"
+      class="hover:cursor-pointer rounded-full w-12 h-12 object-cover"
     />
     <div class="w-full px-3">
       <p class="hover:cursor-pointer">{username}</p><p class="text-sm">
@@ -28,9 +27,10 @@ const parts = caption.split(/(@\w+)/);
   </div>
   <!-- Imagen -->
   <div class="h-80 bg-[#f5f4ed] flex items-center justify-center">
-    <Image
-      src={images[`/src/assets/images/instagram/${avatar}`]?.default}
-      alt="image"
+    <img
+      src={images[`/src/assets/images/instagram/${avatar}`]?.default?.src}
+      alt="avatar"
+      class="hover:cursor-pointer rounded-full w-12 h-12 object-cover"
     />
   </div>
   <!-- Íconos me gusta, mensaje, compartir-->
