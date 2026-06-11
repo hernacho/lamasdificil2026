@@ -17,7 +17,7 @@ const parts = caption.split(/(@\w+)/);
   <!-- Encabezado -->
   <div class="flex justify-between p-3">
     <Image
-      src={images[`../assets/images/instagram/${avatar}`].default}
+      src={images[`../assets/images/instagram/${avatar}`]?.default}
       alt="avatar"
       class="hover:cursor-pointer rounded-full w-12 h-12 flex items-center justify-center"
     />
@@ -32,7 +32,7 @@ const parts = caption.split(/(@\w+)/);
   <!-- Imagen -->
   <div class="h-80 bg-[#f5f4ed] flex items-center justify-center">
     <Image
-      src={images[`../assets/images/instagram/${image}`].default}
+      src={images[`../assets/images/instagram/${image}`]?.default}
       alt="image"
     />
   </div>
