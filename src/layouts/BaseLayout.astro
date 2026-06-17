@@ -6,14 +6,24 @@ import CartToast from "../components/CartToast.astro";
 import CartPanel from "../components/CartPanel.astro";
 import WhatsAppPopup from "../components/WhatsAppPopup.astro";
 import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "La más difícil 2026",
+  description = "Conseguí las figuritas más difícils del álbum de la Copa Mundial de la FIFA 2026. ¡Colecciona, intercambia y completa tu álbum con nosotros!",
+} = Astro.props as Props;
+
+const siteUrl = "https://lamasdificil26.netlify.app";
 ---
 
-<html lang="en" class="scroll-smooth overflow-x-hidden">
+<html lang="es" class="scroll-smooth overflow-x-hidden">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,8 +31,23 @@ import Footer from "../components/Footer.astro";
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width" />
+
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/og-image.jpg`} />
+
     <meta name="generator" content={Astro.generator} />
-    <title>La más difícil 2026</title>
+    <title>{title}</title>
 
     <script
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
